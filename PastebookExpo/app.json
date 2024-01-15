@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "PastebookExpo",
+    "slug": "PastebookExpo",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "PastebookExpo"
+}
