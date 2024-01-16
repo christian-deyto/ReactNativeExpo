@@ -1,7 +1,6 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Divider } from 'react-native-elements'
-import FAB from 'react-native-elements/dist/buttons/FAB';
 
 const postFooterIcons = [
     {
@@ -11,7 +10,7 @@ const postFooterIcons = [
     },
     {
         name:'Comment',
-        imageUrl: 'https://img.icons8.com/material-outlined/24/filled-topic.png',
+        imageUrl: 'https://img.icons8.com/material-outlined/48/speech-bubble--v1.png',
     }
 ]
 
@@ -21,7 +20,12 @@ const Post = ({post}) => {
     <Divider width={1} orientation='vertical' />
       <PostHeader post={post}/>
       <PostImage post={post} />
+      <View style={{marginHorizontal: 15, marginTop: 10}}>
       <PostFooter />
+      <Likes post={post} />
+      <Caption post={post} />
+      <CommentsSection post={post} />
+      </View>
     </View>
   )
 }
@@ -59,15 +63,39 @@ const PostImage = ({ post }) => (
     </View>
   )
 
-  const PostFooter = () => (
+const PostFooter = () => (
+<View style={{flexDirection:'row'}}>
+    <View style={styles.footerIconContainer}>
     <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[0].imageUrl} />
-  )
+    <Icon imgStyle={styles.footerIcon} imgUrl={postFooterIcons[1].imageUrl} />
+</View>
+</View>
+)
+
+const Likes = ({post}) => (
+    <View style={{flexDirection: 'row', marginTop: 4}}>
+    <Text style={{color: '#00008B', fontWeight: '600'}}>{post.likes.toLocaleString('en')} likes</Text>
+    </View>
+)
+
+const Caption = ({post}) => (
+    <View style={{marginTop: 1}}>
+    <Text>
+        <Text style={{color: '#00008B', fontWeight:'600'}}>{post.user}</Text>
+        <Text> {post.caption}</Text>
+    </Text>
+    </View>
+)
 
 const Icon = ({imgStyle, imgUrl}) => (
 <TouchableOpacity>
     <Image style={imgStyle} source={{uri:imgUrl}} />
 </TouchableOpacity>
-    )
+)
+
+const CommentsSection = ({post}) => (
+    <Text style={{color:'gray'}}>Hi</Text>
+)
 
 const styles = StyleSheet.create({
     dp: {
@@ -82,6 +110,12 @@ const styles = StyleSheet.create({
     footerIcon: {
         width: 33,
         height: 33,
+    },
+
+    footerIconContainer: {
+        flexDirection: 'row',
+        width: '20%',
+        justifyContent: 'space-between'
     }
 })
 

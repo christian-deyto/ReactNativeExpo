@@ -3,9 +3,22 @@ export const POSTS = [
     {
         imageUrl: 'https://aphrodite.gmanetwork.com/imagefiles/1000/1502196869_1090319843_15_ent.jpg',
         user: USERS[0].user,
-        likes: 7870,
-        caption: 'Train Ride to Hogwarts',
+        likes: 201,
+        caption: 'Normal Armored',
         profile_picture: USERS[0].image,
+        comments: [
+            {
+                user: 'Dingdong Dentist',
+                comment: 'Wow ang galing!',
+            },
+        ]
+    },
+    {
+        imageUrl: 'https://i.kym-cdn.com/entries/icons/original/000/032/353/Screen_Shot_2020-01-07_at_2.56.59_PM.png',
+        user: USERS[1].user,
+        likes: 201,
+        caption: 'Normal Armored',
+        profile_picture: USERS[1].image,
         comments: [
             {
                 user: 'Dingdong Dentist',
