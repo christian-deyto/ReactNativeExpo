@@ -14,7 +14,7 @@ const Header = () => {
     <View style={styles.iconsContainer}>
     <TouchableOpacity>
         <Image
-          source={{ uri: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png', }}
+          source={{ uri: 'https://img.icons8.com/ios/150/ffffff/search--v1.png', }}
           style={styles.icon}
         />
       </TouchableOpacity>
@@ -42,6 +42,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         marginHorizontal: 0,
+        marginTop: 25,
     },
 
     iconsContainer:{

@@ -11,6 +11,10 @@ export const POSTS = [
                 user: 'Dingdong Dentist',
                 comment: 'Wow ang galing!',
             },
+            {
+                user: 'Josiah',
+                comment: 'WEH!',
+            },
         ]
     },
     {
@@ -21,8 +25,12 @@ export const POSTS = [
         profile_picture: USERS[1].image,
         comments: [
             {
-                user: 'Dingdong Dentist',
+                user: 'Armored Clavio',
                 comment: 'Wow ang galing!',
+            },
+            {
+                user: 'Josiah',
+                comment: 'WEH!',
             },
         ]
     }

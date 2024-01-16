@@ -3,6 +3,7 @@ import React from 'react'
 import Header from '../components/home/Header'
 import Post from '../components/home/Post'
 import {POSTS} from '../data/posts'
+import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
 
 const HomeScreen = () => {
   return (
@@ -13,6 +14,7 @@ const HomeScreen = () => {
           <Post post={post} key ={index} />
         ))}
       </ScrollView>
+      <BottomTabs icons={bottomTabIcons}/>
     </SafeAreaView>
   )
 }

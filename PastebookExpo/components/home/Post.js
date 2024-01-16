@@ -5,12 +5,12 @@ import { Divider } from 'react-native-elements'
 const postFooterIcons = [
     {
         name: 'Like',
-        imageUrl: 'https://img.icons8.com/fluency-systems-regular/48/000000/like--v1.png',
-        likeImageUrl: 'https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v2.png',
+        imageUrl: 'https://img.icons8.com/fluency-systems-regular/48/F875AA/like--v1.png',
+        likeImageUrl: 'https://img.icons8.com/fluency-systems-filled/60/F875AA/like--v1.png',
     },
     {
         name:'Comment',
-        imageUrl: 'https://img.icons8.com/material-outlined/48/speech-bubble--v1.png',
+        imageUrl: 'https://img.icons8.com/material-outlined/48/F875AA/speech-bubble--v1.png',
     }
 ]
 
@@ -25,6 +25,7 @@ const Post = ({post}) => {
       <Likes post={post} />
       <Caption post={post} />
       <CommentsSection post={post} />
+      <Comments post={post} />
       </View>
     </View>
   )
@@ -94,8 +95,30 @@ const Icon = ({imgStyle, imgUrl}) => (
 )
 
 const CommentsSection = ({post}) => (
-    <Text style={{color:'gray'}}>Hi</Text>
+    <View style={{marginTop:1}}>
+    {!!post.comments.length && (
+    <Text style={{color:'gray'}}>
+        View{post.comments.length > 1 ? ' all' : ''} {post.comments.length}{' '}
+        {post.comments.length > 1 ? 'comments':'comment'}
+    </Text>
+    )}
+    </View>
 )
+
+const Comments = ({post}) => (
+    <>
+    {post.comments.map((comment, index) => (
+        <View key={index} style={{flexDirection:'row', marginTop: 1}}>
+            <Text>
+                <Text style={{color:'#00008B', fontWeight:'600'}}>
+                    {comment.user}
+                </Text>
+                {' '}{comment.comment}
+            </Text>
+        </View>
+    ))}
+    </>
+    )
 
 const styles = StyleSheet.create({
     dp: {
@@ -103,7 +126,7 @@ const styles = StyleSheet.create({
         height: 35,
         borderRadius: 50,
         marginLeft: 6,
-        borderWidth: 1.6,
+        borderWidth: 1.4,
         borderColor: '#00008B',
     },
 
