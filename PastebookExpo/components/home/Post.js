@@ -1,16 +1,17 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { Divider } from 'react-native-elements'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const postFooterIcons = [
     {
         name: 'Like',
-        imageUrl: 'https://img.icons8.com/fluency-systems-regular/48/F875AA/like--v1.png',
-        likeImageUrl: 'https://img.icons8.com/fluency-systems-filled/60/F875AA/like--v1.png',
+        imageUrl: 'heart-outline',
+        likeImageUrl: 'heart',
     },
     {
         name:'Comment',
-        imageUrl: 'https://img.icons8.com/material-outlined/48/F875AA/speech-bubble--v1.png',
+        imageUrl: 'comment-outline',
     }
 ]
 
@@ -88,11 +89,16 @@ const Caption = ({post}) => (
     </View>
 )
 
-const Icon = ({imgStyle, imgUrl}) => (
-<TouchableOpacity>
-    <Image style={imgStyle} source={{uri:imgUrl}} />
-</TouchableOpacity>
-)
+const Icon = ({ imgStyle, imgUrl }) => (
+    <TouchableOpacity>
+      <MaterialCommunityIcons
+        name={imgUrl}
+        size={30}
+        color="#F875AA"
+        style={imgStyle}
+      />
+    </TouchableOpacity>
+  )  
 
 const CommentsSection = ({post}) => (
     <View style={{marginTop:1}}>

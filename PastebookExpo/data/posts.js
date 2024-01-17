@@ -21,7 +21,7 @@ export const POSTS = [
         imageUrl: 'https://i.kym-cdn.com/entries/icons/original/000/032/353/Screen_Shot_2020-01-07_at_2.56.59_PM.png',
         user: USERS[1].user,
         likes: 201,
-        caption: 'Normal Armored',
+        caption: 'Yeah I am a dancer',
         profile_picture: USERS[1].image,
         comments: [
             {
