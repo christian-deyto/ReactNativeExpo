@@ -1,87 +1,106 @@
-import { View, TouchableOpacity, Image, StyleSheet } from 'react-native';
-import React, { useState } from 'react';
-import { Divider } from 'react-native-elements';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import React from "react";
+import { View, Text, Platform } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import {MaterialCommunityIcons, Fontisto} from "@expo/vector-icons";
 
-export const bottomTabIcons = [
-  {
-    name: 'Home',
-    active: 'home',
-    inactive: 'home-outline',
-  },
-  {
-    name: 'Post',
-    active: 'plus-box',
-    inactive: 'plus-box-outline',
-  },
-  {
-    name: 'Profile',
-    active: 'https://i.redd.it/gdz204qyuws31.jpg',
-    inactive: 'https://i.redd.it/gdz204qyuws31.jpg',
-  },
-];
+const Tab = createBottomTabNavigator();
 
-const BottomTabs = ({ icons }) => {
-  const [activeTab, setActiveTab] = useState('Home');
+const BottomTabs = () => {
 
-  const Icon = ({ icon }) => (
-    <TouchableOpacity onPress={() => setActiveTab(icon.name)}>
-      {icon.name === 'Profile' ? (
-        <Image
-          source={{ uri: activeTab === icon.name ? icon.active : icon.inactive }}
-          style={[
-            styles.icon,
-            icon.name === 'Profile' ? styles.profilePic(activeTab) : null,
-          ]}
-        />
-      ) : (
-        <MaterialCommunityIcons
-          name={activeTab === icon.name ? icon.active : icon.inactive}
-          size={30}
-          color="#F875A0" // Set your desired color
-          style={styles.icon}
-        />
-      )}
-    </TouchableOpacity>
-  );
+  const screenOptions = {
+    tabBarShowLabel: false,
+    headerShown: false,
+    tabBarHideOnKeyboard: true,
+    tabBarStyle: {
+      position: "absolute",
+      bottom: 0,
+      right: 0,
+      left: 0,
+      elevation: 0,
+      height: 60,
+      backgroundColor: '#fff',
+    },
+  };
 
   return (
-    <View style={styles.wrapper}>
-      <Divider width={1} orientation='vertical' />
-      <View style={styles.container}>
-        {icons.map((icon, index) => (
-          <Icon key={index} icon={icon} />
-        ))}
-      </View>
-    </View>
+    <Tab.Navigator screenOptions={screenOptions}>
+      <Tab.Screen
+        name="Home"
+        component={() => (
+          <View style={styles.container}>
+            <Text>Home Screen</Text>
+          </View>
+        )}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <MaterialCommunityIcons
+              name="home"
+              size={24}
+              color={focused ? '#F875AA' : '#7E57C2'}
+            />
+          ),
+        }}
+      />
+
+
+      <Tab.Screen
+        name="Create"
+        component={() => (
+          <View style={styles.container}>
+            <Text>Create Screen</Text>
+          </View>
+        )}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <View
+              style={{
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: '#F875AA',
+                height: Platform.OS == "ios" ? 50 : 60,
+                width: Platform.OS == "ios" ? 50 : 60,
+                top: Platform.OS == "ios" ? -10 : -20,
+                borderRadius: Platform.OS == "ios" ? 25 : 30,
+                borderWidth: 2,
+                borderColor: '#fff', // Updated border color
+              }}
+            >
+              <Fontisto name="plus-a" size={24} color="#fff" />
+            </View>
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Profile"
+        component={() => (
+          <View style={styles.container}>
+            <Text>Profile Screen</Text>
+          </View>
+        )}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Fontisto
+              name="person"
+              size={24}
+              color={focused ? '#F875AA' : '#7E57C2'} // Updated icon color
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 
-const styles = StyleSheet.create({
-  wrapper: {
-    position: 'absolute',
-    width: '100%',
-    bottom: '0%',
-    zIndex: 999,
-    backgroundColor: '#fff',
-  },
-
+const styles = {
   container: {
+    backgroundColor: '#fff',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    height: 50,
-    paddingTop: 10,
+    marginHorizontal: 0,
+    marginTop: 25,
   },
-  icon: {
-    width: 30,
-    height: 30,
-  },
-
-  profilePic: (activeTab) => ({
-    borderRadius: 50,
-    borderWidth: activeTab === 'Profile' ? 2 : 0,
-    borderColor: '#F875AA',
-  }),
-});
+};
 
 export default BottomTabs;

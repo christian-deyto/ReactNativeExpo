@@ -1,8 +1,15 @@
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { useNavigation } from '@react-navigation/native';
 
 const Header = () => {
+  const navigation = useNavigation();
+
+  const navigateToSettings = () => {
+    navigation.navigate('SettingsScreen');
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -21,7 +28,7 @@ const Header = () => {
           <MaterialCommunityIcons name="heart-outline" size={30} color="white" style={styles.icon} />
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={navigateToSettings}>
           <Image source={require('../../assets/settings-icon.png')} style={styles.icon} />
         </TouchableOpacity>
       </View>
@@ -36,7 +43,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row',
     marginHorizontal: 0,
-    marginTop: 1,
+    marginTop: 25,
   },
 
   iconsContainer: {

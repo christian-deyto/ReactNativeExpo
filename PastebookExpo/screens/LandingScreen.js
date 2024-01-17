@@ -27,6 +27,7 @@ const LandingScreen = () => {
             resizeMode: 'cover',
             width: width,
             height: height,
+            marginTop: 25,
           }}
         >
           <View
