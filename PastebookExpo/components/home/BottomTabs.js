@@ -1,7 +1,8 @@
 import React from "react";
-import { View, Text, Platform } from "react-native";
+import { View, Text, Platform, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {MaterialCommunityIcons, Fontisto} from "@expo/vector-icons";
+import ProfileScreen from "../../screens/ProfileScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +45,7 @@ const BottomTabs = () => {
 
 
       <Tab.Screen
-        name="Create"
+        name="Post"
         component={() => (
           <View style={styles.container}>
             <Text>Create Screen</Text>
@@ -71,19 +72,14 @@ const BottomTabs = () => {
         }}
       />
 
-      <Tab.Screen
+<Tab.Screen
         name="Profile"
-        component={() => (
-          <View style={styles.container}>
-            <Text>Profile Screen</Text>
-          </View>
-        )}
+        component={ProfileScreen}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Fontisto
-              name="person"
-              size={24}
-              color={focused ? '#F875AA' : '#7E57C2'} // Updated icon color
+            <Image
+              source={focused ? require('../../assets/selfie.jpg') : require('../../assets/selfie.jpg')}
+              style={styles.iconStyle(focused)}
             />
           ),
         }}
@@ -101,6 +97,15 @@ const styles = {
     marginHorizontal: 0,
     marginTop: 25,
   },
+
+  iconStyle: (focused) => ({
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    backgroundColor: focused ? '#F875AA' : '#7E57C2',
+    borderWidth: 2,
+    borderColor: focused ? '#F875AA' : '#7E57C2',
+  }),
 };
 
 export default BottomTabs;
