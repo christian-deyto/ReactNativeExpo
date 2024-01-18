@@ -4,7 +4,11 @@ export const USERS = [
         image: require('../assets/selfie.jpg'),
     },
     {
-        user: 'Dingdong Dentist',
+        user: 'Dingdong Dancer',
         image: require('../assets/work.jpg'),
+    },
+    {
+        user: 'Julia Burrito',
+        image: require('../assets/julia.jpg'),
     },
 ];

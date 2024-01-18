@@ -12,7 +12,7 @@ export const POSTS = [
                 comment: 'Wow ang galing!',
             },
             {
-                user: 'Josiah',
+                user: 'Mel Tiyan Ko',
                 comment: 'WEH!',
             },
         ]
@@ -25,12 +25,42 @@ export const POSTS = [
         profile_picture: USERS[1].image,
         comments: [
             {
-                user: 'Armored Clavio',
-                comment: 'Wow ang galing!',
+                user: 'Recharge Gutierrez',
+                comment: 'Sample!',
             },
             {
-                user: 'Josiah',
-                comment: 'WEH!',
+                user: 'Tulina Magdangal',
+                comment: 'Mala Step Up!',
+            },
+        ]
+    },
+    {
+        imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNsN2x8JFtbJYSiJA-TQJB6uwtMihxV9Rs9UVVhY8lNmNzvqjGA_6F1m8CHHpTyWjYDzw&usqp=CAU',
+        user: USERS[2].user,
+        likes: 201,
+        caption: 'With my pet, Piolo Askal :) WOOF!',
+        profile_picture: USERS[2].image,
+        comments: [
+            {
+                user: 'Jessica Soju',
+                comment: 'So cute!!',
+            },
+            {
+                user: 'Kuya Whale',
+                comment: 'Gwapo naman!',
+            },
+        ]
+    },
+    {
+        imageUrl: 'https://aphrodite.gmanetwork.com/entertainment/articles/original/watch__dingdong_dantes_easily_passed__tonight_with_arnold_clavio_s__diaper-changing_challenge_1457677481.jpg',
+        user: USERS[1].user,
+        likes: 201,
+        caption: 'Armored and Dingdong BFF Forever!',
+        profile_picture: USERS[1].image,
+        comments: [
+            {
+                user: 'Armored Clavio',
+                comment: 'Wow ang galing!',
             },
         ]
     }

@@ -1,29 +1,29 @@
-import { View, Text, SafeAreaView, StyleSheet, ScrollView } from 'react-native'
-import React from 'react'
-import Header from '../components/home/Header'
-import Post from '../components/home/Post'
-import {POSTS} from '../data/posts'
-import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs'
+import React from 'react';
+import { View, Text, SafeAreaView, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
+import Header from '../components/home/Header';
+import Post from '../components/home/Post';
+import { POSTS } from '../data/posts';
+import BottomTabs, { bottomTabIcons } from '../components/home/BottomTabs';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header />
       <ScrollView>
         {POSTS.map((post, index) => (
-          <Post post={post} key ={index} />
+            <Post post={post} />
         ))}
       </ScrollView>
-      <BottomTabs icons={bottomTabIcons}/>
+      <BottomTabs navigation={navigation} icons={bottomTabIcons} />
     </SafeAreaView>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
-    container : {
-        backgroundColor: 'white',
-        flex: 1,
-    },
-})
+  container: {
+    backgroundColor: 'white',
+    flex: 1,
+  },
+});
 
-export default HomeScreen
+export default HomeScreen;
